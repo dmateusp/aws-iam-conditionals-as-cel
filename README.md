@@ -3,13 +3,15 @@
 This repository contains a few Golang example tests that showcase [cel-go](https://github.com/google/cel-go) by showing how the following AWS IAM policy JSON could be expressed with CEL:
 
 ```json
-[
-    {"Condition" : { "StringEqualsIgnoreCase" : { "aws:username" : "johndoe" }}},
-    {"Condition": { "NumericLessThanEquals": {"aws:MultiFactorAuthAge": "3600"}}},
-    {"Condition": { "ForAnyValue:StringEquals": {
-        "aws:TagKeys": ["foo", "bar"]
-    }}}
-]
+{
+  "Condition": {
+    "StringEqualsIgnoreCase": { "aws:username": "johndoe" },
+    "NumericLessThanEquals": { "aws:MultiFactorAuthAge": "3600" },
+    "ForAnyValue:StringEquals": {
+      "aws:TagKeys": ["foo", "bar"]
+    }
+  }
+}
 ```
 
 Final result:
